@@ -1,14 +1,20 @@
 package com.remedios.Curso.controllers;
 
 import com.remedios.Curso.remedio.DadosCadastroRemedio;
+import com.remedios.Curso.remedio.Remedio;
+import com.remedios.Curso.remedio.RemedioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/remedios")
 public class RemedioController {
 
+    @Autowired
+    private RemedioRepository remedioRepository;
+
     @PostMapping
     public void cadastrar( @RequestBody DadosCadastroRemedio dados){
-        System.out.println("Json: "+ );
+        remedioRepository.save( new Remedio(dados));
     }
 }
