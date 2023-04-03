@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 
+import java.time.LocalDate;
+
 
 @Entity(name = "remedios")
 @Table(name = "Remedios")
@@ -33,8 +35,8 @@ public class Remedio {
     @Enumerated(EnumType.STRING)
     private Via via;
     private  String lote;
-    private String quantidade;
-    private  String validade;
+    private int quantidade;
+    private LocalDate validade;
 
     @Enumerated(EnumType.STRING)
     private  Laboratorio laboratorio;
