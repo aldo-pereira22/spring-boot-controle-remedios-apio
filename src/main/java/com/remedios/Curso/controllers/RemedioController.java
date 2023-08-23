@@ -1,9 +1,6 @@
 package com.remedios.Curso.controllers;
 
-import com.remedios.Curso.remedio.DadosCadastroRemedio;
-import com.remedios.Curso.remedio.DadosListagemRemedio;
-import com.remedios.Curso.remedio.Remedio;
-import com.remedios.Curso.remedio.RemedioRepository;
+import com.remedios.Curso.remedio.*;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,4 +27,12 @@ public class RemedioController {
                 .stream()
                 .map(DadosListagemRemedio::new).toList();
     }
+
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosAtualizarRemedio dados){
+        var remedio = remedioRepository.getReferenceById(dados.id());
+        remedio.atualizarInformacoes(dados);
+    }
+
 }
