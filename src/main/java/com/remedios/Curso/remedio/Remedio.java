@@ -23,6 +23,7 @@ public class Remedio {
         this.quantidade = dados.quantidade();
         this.validade= dados.validade();
         this.laboratorio = dados.laboratorio();
+        this.ativo = true;
     }
 
 
@@ -38,6 +39,7 @@ public class Remedio {
     private int quantidade;
     private LocalDate validade;
 
+    private Boolean ativo;
     @Enumerated(EnumType.STRING)
     private  Laboratorio laboratorio;
 
@@ -53,5 +55,9 @@ public class Remedio {
             this.laboratorio = dados.laboratorio();
         }
 
+    }
+
+    public void inativar() {
+        this.ativo = false;
     }
 }
