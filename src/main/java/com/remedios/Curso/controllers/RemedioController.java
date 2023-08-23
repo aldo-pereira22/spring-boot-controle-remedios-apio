@@ -47,4 +47,12 @@ public class RemedioController {
         var remedio = remedioRepository.getReferenceById(id);
         remedio.inativar();
     }
+
+
+    @PutMapping("ativar/{id}")
+    @Transactional
+    public void ativar(@PathVariable Long id){
+        var remedio = remedioRepository.getReferenceById(id);
+        remedio.ativar();
+    }
 }
