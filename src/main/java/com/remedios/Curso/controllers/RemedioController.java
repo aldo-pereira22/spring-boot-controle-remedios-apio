@@ -66,4 +66,11 @@ public class RemedioController {
         remedio.ativar();
         return  ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<DadosDetalhamentoRemedio> buscarPorId(@PathVariable Long id){
+        var remedio = remedioRepository.getReferenceById(id);
+
+        return ResponseEntity.ok(new DadosDetalhamentoRemedio(remedio));
+    }
 }
