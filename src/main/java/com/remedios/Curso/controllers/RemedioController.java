@@ -70,7 +70,6 @@ public class RemedioController {
     @GetMapping("/{id}")
     public ResponseEntity<DadosDetalhamentoRemedio> buscarPorId(@PathVariable Long id){
         var remedio = remedioRepository.getReferenceById(id);
-
         return ResponseEntity.ok(new DadosDetalhamentoRemedio(remedio));
     }
 }
